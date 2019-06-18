@@ -5,6 +5,7 @@ const bodyQuery = document.querySelector('body');
 const navLinks = document.querySelectorAll('nav a');
 const imgSelector = document.querySelectorAll('img');
 lowerButtons = document.querySelectorAll('.btn');
+const navLink = document.querySelector('header nav a');
 
 // Copy Alert [X]
 bodyQuery.addEventListener('copy', event => {
@@ -39,4 +40,12 @@ lowerButtons.forEach(item =>
     item.addEventListener('click', event => {
         event.preventDefault();
         event.target.style.display = 'none';
-}));
+    })
+);
+
+// Change H2 to button clicked [6]
+navLink.addEventListener('click', event => {
+    let title = document.querySelector('.container h2');
+    title.textContent = navLink.textContent;
+});
+
