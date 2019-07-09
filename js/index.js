@@ -4,13 +4,13 @@
 const bodyQuery = document.querySelector('body');
 const navLinks = document.querySelectorAll('nav a');
 const imgSelector = document.querySelectorAll('img');
-lowerButtons = document.querySelectorAll('.btn');
+const lowerButtons = document.querySelectorAll('.btn');
 const navLink = document.querySelector('header nav a');
 
 // Copy Alert [X]
 bodyQuery.addEventListener('copy', event => {
     event.preventDefault();
-    alert('Plagurism is a crime!')
+    alert('Plagiarism is a crime!')
 });
 
 // Scroll event [X]
@@ -27,11 +27,26 @@ navLinks.forEach(a => {
     })
 });
 
+// Nav mouseout [X]
+navLinks.forEach(a => {
+    a.addEventListener('mouseout', event => {
+        event.target.style.textDecoration = 'none';
+    })
+});
+
 // Blur mouseover on photos [X]
 imgSelector.forEach(item => 
     item.addEventListener('mouseover', event => {
         event.preventDefault();
         event.target.style.filter = 'blur(8px)';
+    })
+);
+
+// Blur mouseout on photos [X]
+imgSelector.forEach(item => 
+    item.addEventListener('mouseout', event => {
+        event.preventDefault();
+        event.target.style.filter = 'none';
     })
 );
 
@@ -43,9 +58,40 @@ lowerButtons.forEach(item =>
     })
 );
 
-// Change H2 to button clicked [6]
+// Change H2 to button clicked [X]
 navLink.addEventListener('click', event => {
     let title = document.querySelector('.container h2');
     title.textContent = navLink.textContent;
+});
+
+// Load disclaimer [X]
+// window.addEventListener('load', event => {
+//     event.preventDefault();
+//     alert('You must be 18 years old to ride the fun bus. Click the button to consent.');
+// });
+
+// 
+
+// const navig = document.querySelectorAll('.nav-links');
+
+// navi.addEventListener('click', event => {
+//     event.TweenMax.to('.nav', 2, {left: 600})
+// });
+
+// TweenMax.staggerFrom('.nav-link', 2, {right: 500}, .5)
+
+const navi = document.getElementById('clicker');
+const navig = document.getElementsByClassName('nav-link');
+
+navi.addEventListener('click', () => {
+    console.log(navig);
+    for(i=0; i < navig.length; i++) {
+        navig[i].classList.toggle('toggle-item');
+    }
+    TweenMax.staggerFrom('.nav-link', 2, {opacity: 0}, .3);
+
+    // if(menuItem.classList.contains('toggle-item')) {
+    //     TweenMax.staggerFrom('.nav-a', 2, {opacity: 0}, .5)
+    // }
 });
 
