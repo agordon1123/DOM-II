@@ -6,6 +6,8 @@ const navLinks = document.querySelectorAll('nav a');
 const imgSelector = document.querySelectorAll('img');
 const lowerButtons = document.querySelectorAll('.btn');
 const navLink = document.querySelector('header nav a');
+const navi = document.getElementById('clicker');
+const navig = Array.from(document.getElementsByClassName('nav-link'));
 
 // Copy Alert [X]
 bodyQuery.addEventListener('copy', event => {
@@ -65,33 +67,16 @@ navLink.addEventListener('click', event => {
 });
 
 // Load disclaimer [X]
-// window.addEventListener('load', event => {
-//     event.preventDefault();
-//     alert('You must be 18 years old to ride the fun bus. Click the button to consent.');
-// });
+window.addEventListener('load', event => {
+    event.preventDefault();
+    alert('You must be 18 years old to ride the fun bus. Click the button to consent.');
+});
 
-// 
-
-// const navig = document.querySelectorAll('.nav-links');
-
-// navi.addEventListener('click', event => {
-//     event.TweenMax.to('.nav', 2, {left: 600})
-// });
-
-// TweenMax.staggerFrom('.nav-link', 2, {right: 500}, .5)
-
-const navi = document.getElementById('clicker');
-const navig = document.getElementsByClassName('nav-link');
-
+// Menu animation
 navi.addEventListener('click', () => {
-    console.log(navig);
     for(i=0; i < navig.length; i++) {
         navig[i].classList.toggle('toggle-item');
     }
-    TweenMax.staggerFrom('.nav-link', 2, {opacity: 0}, .3);
 
-    // if(menuItem.classList.contains('toggle-item')) {
-    //     TweenMax.staggerFrom('.nav-a', 2, {opacity: 0}, .5)
-    // }
+    TweenMax.staggerFrom('.nav-link', 2, {opacity: 0}, .5);
 });
-
